@@ -1,0 +1,29 @@
+[
+  {
+    "petname": "Puppino",
+    "pet_license_no": "12345",
+    "license_exp_date": "8/1/2021",
+    "breed": "Yellow Lab",
+    "dob": "2/1/2018",
+    "pet_photo": "",
+    "user_id": 1
+  },
+  {
+    "petname": "Shelby",
+    "pet_license_no": "895612",
+    "license_exp_date": "5/15/2022",
+    "breed": "Husky mix",
+    "dob": "3/6/2010",
+    "pet_photo": "",
+    "user_id": 2
+  },
+  {
+    "petname": "Rex",
+    "pet_license_no": "898563",
+    "license_exp_date": "12/1/2022",
+    "breed": "Black Labrador",
+    "dob": "11/14/2018",
+    "pet_photo": "",
+    "user_id": 3
+  }
+]
