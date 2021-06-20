@@ -1,37 +1,41 @@
 const router = require('express').Router();
-const { BlogPost } = require('../../models');
+const { Pet } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// ADD a new Blog Post:
+// ADD a new PET:
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newBlog = await BlogPost.create({
+    const dbPetData = await Pet.create({
       ...req.body,
       user_id: req.session.user_id
     });
-    res.status(200).json(newBlog);
+    res.status(200).json(dbPetData);
   }
   catch (err) {
     res.status(400).json(err);
   }
 });
 
-// UPDATE an existing Blog Post:
+// UPDATE an existing PET:
 router.put('/:id', withAuth, async (req, res) => {
-  await BlogPost.update({
-    title: req.body.subject,
-    content: req.body.description
+  await Pet.update({
+    petname: req.body.petname,
+    pet_license_no: req.body.pet_license_no,
+    license_exp_date: req.body.license_exp_date,
+    breed: req.body.breed,
+    dob: req.body.dob,
+    pet_photo: req.body.pet_photo
   },{
     where: {
       id: req.params.id
     }
   })
-  .then(blogPostData => {
-    if (!blogPostData) {
-      res.status(404).json({ message: 'No blog post found with this id' });
+  .then(petInfo => {
+    if (!petInfo) {
+      res.status(404).json({ message: 'No pet found to update using this id!' });
       return;
     }
-    res.json(blogPostData);
+    res.json(petInfo);
   })
   .catch(err => {
     console.log(err);
@@ -39,18 +43,18 @@ router.put('/:id', withAuth, async (req, res) => {
   });
 });
 
-// DELETE an existing Blog Post:
+// DELETE an existing PET:
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const blogData = await BlogPost.destroy({
+    const petInfo = await Pet.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id
       },
     });
 
-    if (!blogData) {
-      res.status(404).json({ message: 'No blog found with this id!' });
+    if (!petInfo) {
+      res.status(404).json({ message: 'No pet found to delete using this id!' });
       return;
     }
 
