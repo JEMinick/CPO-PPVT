@@ -1,15 +1,43 @@
-    <div class="card">
-      <h3 class="card-header">Login</h3>
-      <form id="login-form" class="card-body">
-        <label class="form-label" for="username-login">Username</label>
-        <input  id="username-login" type="text" autofocus="true" class="form-input" />
+<div class="row">
 
-        <label class="form-label" for="password-login">Password</label>
-        <input id="password-login" type="password" autofocus="true" class="form-input" />
+  <div class="col-md-6">
+    <h2>Login</h2>
+    <form class="form login-form">
+      <div class="form-group">
+        <label for="email-login">User-Name:</label>
+        <input class="form-input" type="text" id="name-login" />
+      </div>
+      <div class="form-group">
+        <label for="password-login">Password:</label>
+        <input class="form-input" type="password" id="password-login" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Login</button>
+      </div>
+    </form>
+  </div>
 
-        <button type="submit" class="btn">Login!</button>
-        <a class="login-link" href="/signup">Sign up instead</a>
-      </form>
-    </div>
-    
-<script src="/javascript/login.js"></script>
+  <div class="col-md-6">
+    <h2>Signup</h2>
+    <form class="form signup-form">
+      <div class="form-group">
+        <label for="name-signup">User-Name:</label>
+        <input class="form-input" type="text" id="name-signup" />
+      </div>
+      {{!-- <div class="form-group">
+        <label for="email-signup">email:</label>
+        <input class="form-input" type="text" id="email-signup" />
+      </div> --}}
+      <div class="form-group">
+        <label for="password-signup">Password:</label>
+        <input class="form-input" type="password" id="password-signup" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Signup</button>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+<script src="./js/login.js"></script>
