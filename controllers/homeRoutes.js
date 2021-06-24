@@ -1,41 +1,16 @@
 const sequelize = require('../config/connection');
-const { User, BlogPost, BlogComment } = require('../models');
+const { User, Pet, Vaccine } = require('../models');
 const router = require('express').Router();
 
 // =============================================================================================
 router.get('/', (req, res) => {
-  BlogPost.findAll({
-    attributes: [
-      'id',
-      'subject',
-      'description',
-      'date_created'
-    ],
-    include: [
-      {
-        model: BlogComment,
-        attributes: ['id', 'blog_comment', 'post_id', 'user_id', 'date_created'],
-        include: {
-          model: User,
-          attributes: ['name']
-        }
-      },
-      {
-        model: User,
-        attributes: ['name']
-      }
-    ]
-  })
-  .then(dbBlogPosts => {
-    const blogposts = dbBlogPosts.map(subject => subject.get({ plain: true }));
-      // console.log( blogposts );
-      if ( !req.session.loggedIn )
-        req.session.loggedIn = false;
-      res.render('homepage', { blogposts, loggedIn: req.session.loggedIn });    })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+  if (req.session.loggedIn) {
+    res.redirect('/dashboard');
+    return;
+  }
+  res.render('login');
+  
+
 });
 
 // =============================================================================================
