@@ -3,8 +3,7 @@ const { Vaccine } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Fetching ALL vaccines for a specific user/pet:
-router.get('/:id', withAuth, (req, res) => {
-  Vaccine.findAll({})
+router.get('/all/:id', withAuth, (req, res) => {
   Vaccine.findAll({
     where: {
       user_id: req.session.user_id,

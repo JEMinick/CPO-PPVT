@@ -3,6 +3,15 @@ const sequelize = require('../config/connection');
 
 class Vaccine extends Model {}
 
+// id
+// veterinarian
+// vaccine_name
+// date_of_vaccine
+// vaccine_exp_date
+// user_id
+// pet_id
+// date_created
+
 Vaccine.init({
   id: {
     type: DataTypes.INTEGER,

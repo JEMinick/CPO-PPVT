@@ -1,0 +1,58 @@
+<div class="card">
+
+  <div class="card-header text-center">
+    <h4>My Pets</h4>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-4 list-container mt-2">
+        <div class="card" mt-4>
+
+          <div class="flex-column justify-space-around">
+            <div class="display-flex justify-space-between align-center p-2">
+              <h3><a class="link" href="/api/pets/{{id}}">{{petname}}</a></h3>
+              <nav class="navbar navbar-dark bg-dark">
+                <div class="icons">
+                  <a class="link" href="/api/pets/{{id}}">Edit <i class="fas fa-user-edit text-light"></i></a>
+                </div>
+              </nav>
+            </div>
+          </div>
+          
+          <ul class="list-group">
+            <li>Breed: [{{breed}}]</li>
+            <li>Born:  [{{format_date dob}}]</li>
+            <li>Last edited by {{user.username}} on {{format_date updated_at}}</li>
+          </ul>
+
+        </div>
+
+        <div class="card" mt-2>
+          <img id="petPic" 
+            src="/assets/images/Sonny.jpg"
+            alt="Picture of Pet">
+        </div>
+        
+      </div>
+
+      <div class="col-8 mt-2">
+
+        {{#if pet_vaccines.length}}
+          {{!-- <article class="post"> --}}
+          <article>
+            {{#each pet_vaccines as |petVaccine| }}
+              {{> pet-vaccine-info petVaccine}}
+            {{/each}},
+          </article>
+        {{/if}}
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+{{!-- <script src="/js/petImage.js"></script> --}}

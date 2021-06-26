@@ -433,14 +433,18 @@ header {
   background-color: var(--dark-blue); /* #4527a0; */
 }
 
-a {
+.header a {
   color: var(--light-blue); /* white; */
   background-color: var(--dark-blue); /* #4527a0; */
+  /* color: var(--dark-blue); white; */
+  /* background-color: var(--dark-blue); #4527a0; */
   text-decoration: none;
 }
 
 a:hover {
-  color: rgba(248, 242, 242, 0.555);  /* #065b83; */
+  /* color: rgba(248, 242, 242, 0.555);  #065b83; */
+  color: white;
+  background-color:  blue;
   text-decoration: underline;
 }
 

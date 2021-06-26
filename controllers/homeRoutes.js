@@ -1,16 +1,68 @@
 const sequelize = require('../config/connection');
 const { User, Pet, Vaccine } = require('../models');
+const withAuth = require('../utils/auth');
 const router = require('express').Router();
 
 // =============================================================================================
-router.get('/', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/dashboard');
-    return;
-  }
-  res.render('login');
-  
-
+router.get('/', withAuth, (req, res) => {
+  // router.get('/:id', (req, res) => {
+  Pet.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
+    attributes: [
+      'id',
+      'petname',
+      'pet_license_no',
+      'license_exp_date',
+      'breed',
+      'dob',
+      'pet_photo',
+      'date_created',
+      'user_id',
+      'created_at',
+      'updated_at'
+    ],
+    include: [
+      {
+        model: Vaccine,
+          attributes: [
+            'id',
+            'veterinarian',
+            'vaccine_name',
+            'date_of_vaccine',
+            'vaccine_exp_date',
+            'user_id',
+            'pet_id',
+            'date_created',
+            'created_at',
+            'updated_at'
+          ]
+      },
+      {
+        model: User,
+          attributes: [
+            'id',
+            'username',
+            'email'
+            // 'password'
+          ]
+      }
+    ]
+  })
+  .then(dbPetInfo => {
+    const petInfo = dbPetInfo.map(subject => subject.get({ plain: true }));
+      // console.log( petInfo );
+      if ( !req.session.loggedIn )
+        req.session.loggedIn = false;
+      // res.status(200).json(petInfo);
+      console.log( JSON.stringify(petInfo) );
+      res.render('homepage', { petInfo, loggedIn: req.session.loggedIn });    
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 // =============================================================================================

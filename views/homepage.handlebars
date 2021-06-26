@@ -1,11 +1,19 @@
-<article class="post">
 
-    {{#each posts as |post| }}
-        {{> post-info post}}
+<div class="flex-column justify-space-around">
+  <div class="display-flex justify-space-between align-center mb-4">
+    <h3>Pet & Vaccination Records</h3>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="icons">
+        <i class="fas fa-plus text-light">Add Pet</i>
+      </div>
+    </nav>
+  </div>
+</div>
+
+{{#if petInfo.length}}
+  <article>
+    {{#each petInfo as |pet| }}
+      {{> pet-info pet}}
     {{/each}}
-
-</article>
-
-{{!-- adding a comment  --}}
-
-
+  </article>
+{{/if}}
