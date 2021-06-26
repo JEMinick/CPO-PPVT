@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       // If successful, redirect the browser to the users page:
-      document.location.replace('/dashboard');
+      document.location.replace('/');
     } else {
       alert(response.statusText);
     }
@@ -34,15 +34,15 @@ const signupFormHandler = async (event) => {
   if (username && password && email) {
     const response = await fetch('/api/users/newuser', {
       method: 'POST',
-      body: JSON.stringify({ username, password, email }),
+      body: JSON.stringify({ username, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/');
     } else {
       // alert(response.statusText);
-      alert( JSON.stringify(response.statusText)) ;
+      alert( JSON.stringify(response.statusText) );
     }
   }
 };

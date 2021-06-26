@@ -1,4 +1,3 @@
-// module.exports = Post;
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -6,6 +5,16 @@ const sequelize = require('../config/connection');
 class Pet extends Model {}
 
 // create fields/columns for the Pet model
+  // id
+  // petname
+  // pet_license_no
+  // license_exp_date
+  // breed
+  // dob
+  // pet_photo
+  // date_created
+  // user_id
+
 Pet.init({
   id: {
     type: DataTypes.INTEGER,
