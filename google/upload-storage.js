@@ -16,8 +16,6 @@ const uploadImage = ( file ) => new Promise( (resolve, reject) => {
         resumable: false
     })
 
-    console.log( `https://storage.cloud.google.com/${bucket.name}/${blob.name}` );
-    
     blobStream.on( 'finish', () => {
         const publicUrl = `https://storage.cloud.google.com/${bucket.name}/${blob.name}`
         resolve( publicUrl )

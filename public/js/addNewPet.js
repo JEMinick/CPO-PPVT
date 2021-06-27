@@ -28,25 +28,39 @@ const addNewPet = async (event) => {
     const pet_license_no = document.querySelector('#pet-license-no').value.trim();
     const license_exp_date = document.querySelector('#lic-exp-date').value.trim();
     const breed = document.querySelector('#pet-breed').value.trim();
-    const dob = document.querySelector('#pet-dob').value.trim();
+    const dob = document.querySelector('#pet-dob'); // .value.trim();
+    if ( dob && dob.length ) {
+      dob = dob.value.trim();
+    }
   
+    let pet_photo = '';
+
     if ( petname ) {
 
       let file = document.getElementById("upload-file").files[0];
-      console.log( `Uploading image: [${file.name}]` );
 
-      let pet_photo = file.name;
-      
-      // let formData = new FormData();
-      // formData.append("file", file);
-      // const response1 = await fetch('/uploadimg', {
-      //     method: "POST", 
-      //     body: formData
-      // });
-      // const {data} = await response1.json()
-      // // console.log(data)
-      // pet_photo = JSON.stringify(data);
-      // // console.log( `Pet Image: [${pet_photo}]` );
+      pet_photo = file.name
+      if ( pet_photo ) {
+
+        console.log( `Uploading image: [${pet_photo}]` );
+
+        let formData = new FormData()
+        formData.append("file", file)
+        const response = await fetch('/uploadimg', {
+            method: "POST", 
+            body: formData
+        })
+        const {data} = await response.json()
+        // const {status} = await response.json()
+
+        // const {err} = await response.json()
+        // console.log( JSON.stringify(err) )
+
+        // pet_photo = data;
+        pet_photo = JSON.stringify(data);
+
+        console.log( `Pet Image: [${pet_photo}]` );
+      }
 
       console.log( "Attempting to add pet: [" 
         + JSON.stringify(
@@ -73,16 +87,16 @@ const addNewPet = async (event) => {
       });
   
       if (response2.ok) {
-        // document.location.replace('/');
+        document.location.replace('/');
       } else {
-        // alert(response.statusText);
-        alert( JSON.stringify(response2.statusText) );
+        alert(response.statusText);
+        // alert( JSON.stringify(response2.statusText) );
       }
     }
   };
 
   document
-    .querySelector( '#addPetBtn' )
-    // .addEventListener( 'submit', addNewPet );
-    .addEventListener( 'click', addNewPet );
+    .querySelector( '.new-pet-form' )
+    .addEventListener( 'submit', addNewPet );
+    // .addEventListener( 'click', addNewPet );
   
