@@ -36,6 +36,7 @@ const addNewPet = async (event) => {
       console.log( `Uploading image: [${file.name}]` );
 
       let pet_photo = file.name;
+      
       // let formData = new FormData();
       // formData.append("file", file);
       // const response1 = await fetch('/uploadimg', {
