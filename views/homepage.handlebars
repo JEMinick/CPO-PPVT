@@ -4,7 +4,8 @@
     <h3>Pet & Vaccination Records</h3>
     <nav class="navbar navbar-dark bg-dark">
       <div class="icons">
-        <i class="fas fa-plus text-light">Add Pet</i>
+        {{!-- <i class="fas fa-plus text-light">Add Pet</i> --}}
+        <button class="btn btn-primary" id="addpetbtn" type="submit"><i class="fas fa-plus text-light">Add Pet</i></button>
       </div>
     </nav>
   </div>
@@ -17,3 +18,5 @@
     {{/each}}
   </article>
 {{/if}}
+
+<script src="/js/addPet.js"></script>
