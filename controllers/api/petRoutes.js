@@ -2,8 +2,39 @@ const router = require('express').Router();
 const { Pet } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// Fetch an existing pet:
+router.get('/:id', withAuth, (req, res) => {
+  Pet.findAll({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(dbPetData => res.json(dbPetData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  })
+});
+
+// ADD a new PET image:
+router.post('/uploadpic', withAuth, async (req, res) => {
+  console.log( `POST new pet image: [${req.body}]` );
+  // try {
+  //   const dbPetData = await Pet.create({
+  //     ...req.body,
+  //     user_id: req.session.user_id
+  //   });
+  //   res.status(200).json(dbPetData);
+  // }
+  // catch (err) {
+  //   res.status(400).json(err);
+  // }
+});
+  
 // ADD a new PET:
-router.post('/', withAuth, async (req, res) => {
+// router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
+  console.log( `POST new pet: [${req.body}]` );
   try {
     const dbPetData = await Pet.create({
       ...req.body,

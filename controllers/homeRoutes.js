@@ -75,6 +75,17 @@ router.get('/login', (req, res) => {
 });
 
 // =============================================================================================
+
+router.get( '/addNewPet', withAuth, (req, res) => {
+  // if ( req.session.loggedIn ) {
+  //   res.redirect('/new-pet');
+  //   return;
+  // }
+  console.log( `Render 'new-pet'...` );
+  res.render('new-pet');
+});
+
+// =============================================================================================
 // router.get('/signup', (req, res) => {
 //   res.render('signup');
 // });

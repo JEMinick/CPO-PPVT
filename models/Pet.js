@@ -6,13 +6,13 @@ class Pet extends Model {}
 
 // create fields/columns for the Pet model
   // id
-  // petname
+  // petname :: NOT NULL
   // pet_license_no
   // license_exp_date
   // breed
   // dob
   // pet_photo
-  // date_created
+  // date_created :: default: NOW
   // user_id
 
 Pet.init({
