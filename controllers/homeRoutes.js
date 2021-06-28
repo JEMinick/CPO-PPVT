@@ -83,6 +83,7 @@ router.get( '/addNewPet', withAuth, (req, res) => {
   // }
   console.log( `Render 'new-pet'...` );
   res.render('new-pet');
+  // res.render('new-pet-image');
 });
 
 // =============================================================================================

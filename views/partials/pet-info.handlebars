@@ -29,11 +29,19 @@
 
         </div>
 
+        {{#if pet_photo.length}}
         <div class="card" mt-2>
           <img id="petPic" 
-            src="/assets/images/Sonny.jpg"
+            src = {{{pet_photo}}}
             alt="Picture of Pet">
         </div>
+        {{else}}
+        <div class="card" mt-2>
+          <img id="petPic" 
+            src="/assets/images/PetPhoto.jpg"
+            alt="Picture of Pet">
+        </div>
+        {{/if}}
         
       </div>
 

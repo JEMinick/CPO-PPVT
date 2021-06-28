@@ -20,7 +20,7 @@
 The primary motivation for creating CPO-PPVT was creating a simple tool one can use to keep a private digital record of the pet vaccinations relating to my pets.
 The problem being addressed and resolved with this app is providing digital access to pet vaccination information that can be accessed from typical user web-connected devices (i.e., computer, mobile phone, tablet, etc).  In theory, read-only access could also be shared and provided to another authorized user (defined within the CPO-PPVT app) such as a veterinarian or licensing official.<br/>
 
-By creating this full-stack applicatino, we learned the following: 
+By creating this full-stack application, we learned the following: 
 *   MVC;
 *   the re-usability of handlebars;
 *   Google Cloud Platform; and,
