@@ -1,60 +1,118 @@
 <div class="card">
 
-  <div class="card-header text-center">
-    <h4>My Pets</h4>
+  <div class="card card-rounded card-header text-center mb-3 mt-2 ml-2 mr-2">
+    <h4 id="pet-name" class="mt-2">{{petname}}</h4>
   </div>
 
   <div class="container-fluid">
     <div class="row">
 
-      <div class="col-4 list-container mt-2">
-        <div class="card" mt-4>
+      <div class="col-sm-5 list-container mt-3 ml-2">
+        <div class="card">
+
+        {{!-- vaccine-id is needed on an edit: --}}
+        <input type="hidden" name="pet-id" value="{{id}}" />
+
+        {{!-- <div class="flex-column justify-space-around">
+          <div class="display-flex justify-space-between align-center p-2">
+            <h3>Pet Information</h3>
+          </div>
+        </div> --}}
+        <div class="card card-rounded card-header text-center mb-3 mt-2 ml-2 mr-2">
+          <h4 class="mt-2">Pet Record</h4>
+        </div>
 
           <div class="flex-column justify-space-around">
             <div class="display-flex justify-space-between align-center p-2">
-              <h3><a class="link" href="/api/pets/{{id}}">{{petname}}</a></h3>
-              <nav class="navbar navbar-dark bg-dark">
+              {{!-- <h3><a class="link" href="/api/pets/{{id}}">{{petname}}</a></h3> --}}
+              {{!-- <nav class="navbar navbar-dark bg-dark"> --}}
                 <div class="icons">
-                  <a class="link" href="/api/pets/{{id}}">Edit <i class="fas fa-user-edit text-light"></i></a>
+                  {{!-- <a class="link" 
+                     href="/api/pets/{{id}}">Edit <i class="fas fa-user-edit text-light"></i>
+                  </a> --}}
+                  <button id="btnEditPet" 
+                          class="btn btn-primary mb-2 ml-1" 
+                          type="button"
+                          alt="Edit Pet">
+                          <a href="/api/pets/edit/{{id}}">Edit  
+                             <i class="fas fa-user-edit text-light"></i>
+                          </a>
+                  </button>
+
+                  <button id="btnDeletePet"
+                          class="btn btn-primary mb-2 ml-1 deletepetbtn"
+                          data-petid={{id}}
+                          type="button"
+                          alt="Delete Pet Button">
+                          Delete 
+                          {{!-- <a href="/api/pets/delete/{{id}}">Delete  --}}
+                             <i class="fas fa-trash text-light"></i>
+                          {{!-- </a> --}}
+                  </button>
                 </div>
-              </nav>
+              {{!-- </nav> --}}
             </div>
           </div>
-          
+
           <ul class="list-group">
-            <li>Breed: [{{breed}}]</li>
-            <li>Born:  [{{format_date dob}}]</li>
+            {{#if breed.length}}
+              <li>Breed: [{{breed}}]</li>
+            {{else}}
+              <li>Breed:</li>
+            {{/if}}
+            {{#if dob}}
+              <li>Born:  [{{format_date dob}}]</li>
+            {{else}}
+              <li>Born:</li>
+            {{/if}}
+            {{#if pet_license_file}}
+              <li>License: 
+                <a class="link" href="{{pet_license_file}}" target="_blank">  <i class="fas fa-file-pdf text-link"></i> View File </a>
+              </li>
+            {{/if}}
             <li>Last edited by {{user.username}} on {{format_date updated_at}}</li>
           </ul>
 
         </div>
 
         {{#if pet_photo.length}}
-        <div class="card" mt-2>
-          <img id="petPic" 
-            src = {{{pet_photo}}}
-            alt="Picture of Pet">
+        <div class="card mt-1">
+          {{!-- <img id="petPic" 
+            src="{{pet_photo}}"
+            alt="Picture of Pet"> --}}
+          <a  class="link" 
+              href="{{pet_photo}}" 
+              target="_blank">
+              <img id="petPic" class="petphoto"
+                src="{{pet_photo}}"
+                alt="Picture of Pet">
+          </a>
         </div>
         {{else}}
-        <div class="card" mt-2>
+        <div class="card mt-1">
           <img id="petPic" 
-            src="/assets/images/PetPhoto.jpg"
-            alt="Picture of Pet">
+            src="/assets/images/PetImage.jpg"
+            alt="Pet Image placeholder">
         </div>
         {{/if}}
-        
       </div>
 
-      <div class="col-8 mt-2">
+      <div class="col mt-2 ml-2">
 
         {{#if pet_vaccines.length}}
           {{!-- <article class="post"> --}}
-          <article>
+          <div>
             {{#each pet_vaccines as |petVaccine| }}
               {{> pet-vaccine-info petVaccine}}
-            {{/each}},
-          </article>
+            {{/each}}
+          </div>
         {{/if}}
+
+        <div class="icons mb-2">
+          <button class="btn btn-primary w-100 addvaccinebtn" data-petid={{id}} 
+                  type="button"><i class="fas fa-plus text-light vacicon"></i>Add Vaccine
+          </button>
+        </div>
 
       </div>
 
@@ -63,4 +121,4 @@
 
 </div>
 
-{{!-- <script src="/js/petImage.js"></script> --}}
+{{!-- <script src="/js/petInfoButtons.js"></script> --}}

@@ -1,14 +1,72 @@
+
+{{!-- // create fields/columns for the Pet model
+  // petname
+  // pet_license_no
+  // license_exp_date
+  // breed
+  // dob
+  // pet_photo
+  // pet_license_file
+  // date_created
+  // user_id --}}
+
 <div class="card">
-  <h3 class="card-header">Edit Pet</h3>
-  <form class="card-body edit-post-form">
-    <label for="pet-name" class="form-label">Pet Name</label>
-    <input name="pet-name" type="text" value="{{petname}}" class="form-input" />
-    <label class="form-label" for="pet-dob">DOB</label>
-    <input name="pet-dob" type="text" value="{{dob}}" class="form-input" />
-    <button type="submit" class="btn">Update Pet</button>
-    <button type="button" class="delete-post-btn btn">Delete Pet</button>
-  </form>
+
+{{#if petInfo.id}}
+    <h3 class="card-header">Updating "{{petInfo.petname}}"</h3>
+{{else}}
+    <h3 class="card-header">Describe Your Pet</h3>
+{{/if}}
+
+    <form class="card-body edit-pet-form" id="edit-pet-form">
+
+        <input type="hidden" name="pet-id" value="{{petInfo.id}}" />
+
+        <label for="pet-title" class="form-label">Pet Name (*):</label>
+        <input type="text" id="pet-name" name="pet-title" class="form-input" value="{{petInfo.petname}}" />
+
+        <label class="form-label" for="license-no">License number:</label>
+        <input id="pet-license-no" name="license-no" class="form-input" value="{{petInfo.pet_license_no}}" />
+
+        <label class="form-label" for="lic-exp-date">License Expiration:</label>
+        {{#if petInfo.license_exp_date}}
+        <input id="lic-exp-date" name="lic-exp-date" class="form-input" value={{format_date petInfo.license_exp_date}} />
+        {{else}}
+        <input id="lic-exp-date" name="lic-exp-date" class="form-input" />
+        {{/if}}
+
+        <label class="form-label" for="pet-breed">Breed:</label>
+        <input id="pet-breed" name="pet-breed" class="form-input" value="{{petInfo.breed}}" />
+
+        <label class="form-label" for="pet-dob">Date of Birth:</label>
+        {{#if petInfo.dob}}
+        <input id="pet-dob" name="pet-dob" class="form-input" value={{format_date petInfo.dob}} />
+        {{else}}
+        <input id="pet-dob" name="pet-dob" class="form-input" />
+        {{/if}}
+
+        {{!-- <div class="display-flex justify-space-between mt-4 gray-brdr edit-ftr"> --}}
+        <div class="display-flex flex-column mt-4 gray-brdr edit-ftr">
+            <div>
+                <label class="form-label" for="pet-image">Pet Image: {{petInfo.pet_photo_local}}</label>
+                <input type="file" id="upload-image" name="pet-image" value="{{petInfo.pet_photo}}" />
+            </div>
+
+            <div>
+                <label class="form-label" for="pet-license">Pet License (pdf): {{petInfo.pet_license_local}}</label>
+                <input type="file" id="upload-license" name="pet-license" value="{{petInfo.pet_license_file}}"/>
+            </div>
+        </div>
+
+        <div class="display-flex justify-space-between mt-4 gray-brdr edit-ftr-icons">
+            <div>
+                <button type="button" class="btn" id="cancelPetEdit">Cancel</button>
+                <button type="submit" class="btn" id="editPetBtn">Update Pet!</button>
+            </div>
+        </div>
+
+    </form>
+
 </div>
 
-<script src="/js/edit-pet.js"></script>
-<script src="/js/delete-pet.js"></script>
+<script src="/js/editPet.js"></script>

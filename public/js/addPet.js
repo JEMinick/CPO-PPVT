@@ -1,10 +1,8 @@
 // button to ADD a new pet...
 
 const userAddPet = function () {
-  document.location.replace('/addNewPet');
+  document.location.replace('/add-pet');
 };
-
-// console.log( `Waiting for 'addPet!'` );
 
 document
   .querySelector('#addpetbtn')

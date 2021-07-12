@@ -6,6 +6,7 @@
     "breed": "Yellow Lab",
     "dob": "2/1/2018",
     "pet_photo": "",
+    "pet_license_file": "",
     "user_id": 1
   },
   {
@@ -15,6 +16,7 @@
     "breed": "Husky mix",
     "dob": "3/6/2010",
     "pet_photo": "",
+    "pet_license_file": "",
     "user_id": 2
   },
   {
@@ -24,6 +26,7 @@
     "breed": "Black Labrador",
     "dob": "11/14/2018",
     "pet_photo": "",
+    "pet_license_file": "",
     "user_id": 3
   }
 ]

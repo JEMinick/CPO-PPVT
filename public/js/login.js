@@ -29,7 +29,7 @@ const signupFormHandler = async (event) => {
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
-  console.log( "Attempting sign-up for: [" + JSON.stringify({ username, email, password }) + "]" );
+  // console.log( "Attempting sign-up for: [" + JSON.stringify({ username, email, password }) + "]" );
 
   if (username && password && email) {
     const response = await fetch('/api/users/newuser', {

@@ -4,6 +4,7 @@
     "vaccine_name": "Rabbies Vaccine",
     "date_of_vaccine": "8/1/2018",
     "vaccine_exp_date": "8/1/2021",
+    "vaccine_license_file": "",
     "user_id": 1,
     "pet_id": 1
   },
@@ -12,6 +13,7 @@
     "vaccine_name": "Rabbies vaccine",
     "date_of_vaccine": "5/15/2020",
     "vaccine_exp_date": "5/15/2022",
+    "vaccine_license_file": "",
     "user_id": 2,
     "pet_id": 2
   },
@@ -20,6 +22,7 @@
     "vaccine_name": "Rabies Vaccine",
     "date_of_vaccine": "12/01/2020",
     "vaccine_exp_date": "12/01/2022",
+    "vaccine_license_file": "",
     "user_id": 3,
     "pet_id": 3
   },
@@ -28,6 +31,7 @@
     "vaccine_name": "Parvo Vaccine",
     "date_of_vaccine": "12/01/2020",
     "vaccine_exp_date": "12/01/2022",
+    "vaccine_license_file": "",
     "user_id": 3,
     "pet_id": 3
   }

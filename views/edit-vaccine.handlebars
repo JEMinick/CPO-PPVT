@@ -1,0 +1,65 @@
+{{!-- // id
+      // veterinarian
+      // vaccine_name
+      // date_of_vaccine
+      // vaccine_exp_date
+      // user_id
+      // pet_id
+      // date_created --}}
+
+<div class="card">
+
+{{#if vaccineInfo.id}}
+    <h3 class="card-header">Updating "{{vaccineInfo.vaccine_name}}"</h3>
+{{else}}
+    <h3 class="card-header">Adding Vaccine</h3>
+{{/if}}
+
+    <form class="card-body edit-vaccine-form" id="edit-vaccine-form">
+
+        {{!-- vaccine-id is needed on an edit: --}}
+        <input type="hidden" name="vaccine-id" id="vacinfo-ID" value="{{vaccineInfo.id}}" />
+        {{!-- user-id and pet-id are needed on an add: --}}
+        <input type="hidden" name="user-id" id="vacinfo-UserID" value="{{vaccineInfo.user_id}}" />
+        <input type="hidden" name="pet-id" id="vacinfo-PetID" value="{{vaccineInfo.pet_id}}" />
+
+        <label for="vaccine-name" class="form-label">Vaccine Name (*):</label>
+        <input type="text" id="vaccine-name" name="vaccine-name" class="form-input" value="{{vaccineInfo.vaccine_name}}" />
+
+        <label class="form-label" for="vaccine-date">Vaccine Administered: (*)</label>
+        {{#if vaccineInfo.date_of_vaccine}}
+        <input id="vaccine-date" name="vaccine-date" class="form-input" value={{format_date vaccineInfo.date_of_vaccine}} />
+        {{else}}
+        <input id="vaccine-date" name="vaccine-date" class="form-input" />
+        {{/if}}
+
+        <label class="form-label" for="vaccine-exp-date">Vaccine Expiration: (*)</label>
+        {{#if vaccineInfo.vaccine_exp_date}}
+        <input id="vaccine-exp-date" name="vaccine-exp-date" class="form-input" value={{format_date vaccineInfo.vaccine_exp_date}} />
+        {{else}}
+        <input id="vaccine-exp-date" name="vaccine-exp-date" class="form-input" />
+        {{/if}}
+
+        <label class="form-label" for="vet-name">Veterinarian:</label>
+        <input id="vet-name" name="vet-name" class="form-input" value="{{vaccineInfo.veterinarian}}" />
+
+        {{!-- <div class="display-flex justify-space-between mt-4 gray-brdr edit-ftr"> --}}
+        <div class="display-flex flex-column mt-4 gray-brdr edit-ftr">
+            <div>
+                <label class="form-label" for="vaccine-license">Vaccine License (pdf): {{vaccineInfo.vaccine_license_local}}</label>
+                <input type="file" id="upload-license" name="vaccine-license" value="{{vaccineInfo.vaccine_license_file}}"/>
+            </div>
+        </div>
+
+        <div class="display-flex justify-space-between mt-4 gray-brdr edit-ftr-icons">
+            <div>
+                <button type="button" class="btn" id="cancelVaccineEdit">Cancel</button>
+                <button type="submit" class="btn" id="editVaccineBtn">Update Vaccine!</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+<script src="/js/editVaccine.js"></script>
