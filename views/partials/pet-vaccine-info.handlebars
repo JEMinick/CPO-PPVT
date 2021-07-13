@@ -1,14 +1,17 @@
-<div class="card">
+<div class="card mt-2">
 
-  <div class="card-header text-center">
+  {{!-- <div class="card card-rounded card-header text-center mb-3 mt-2 mb-3">
     <h4>Vaccination Record</h4>
+  </div> --}}
+  <div class="card card-rounded card-header text-center mb-3 mt-2 ml-2 mr-2">
+    <h4 class="mt-2">Vaccination Record</h4>
   </div>
 
   <div class="container-fluid">
     <div class="row">
 
-      <div class="col-10 list-container mt-3">
-        <div class="card" mt-4>
+      <div class="col-10 list-container align-content-center align-center">
+        <div class="card ml-2">
 
           <div class="flex-column justify-space-around">
             <div class="display-flex justify-space-between align-center p-2">
@@ -17,21 +20,72 @@
           </div>
           
           <ul class="list-group">
+            {{#if date_of_vaccine}}
             <li>Date Administered: [{{format_date date_of_vaccine}}]</li>
+            {{else}}
+            <li>Date Administered:</li>
+            {{/if}}
+            {{#if vaccine_exp_date}}
             <li>Date Expires:      [{{format_date vaccine_exp_date}}]</li>
+            {{else}}
+            <li>Date Expires:</li>
+            {{/if}}
+            {{#if vaccine_license_file}}
+              <li>License: 
+                <a class="link" href="{{vaccine_license_file}}" target="_blank">  <i class="fas fa-file-pdf text-link"></i> View File </a>
+              </li>
+            {{/if}}
           </ul>
         </div>
       </div>
 
-      <div class="col-2 mt-3">
-        <nav class="navbar navbar-dark bg-dark">
-          <div class="icons">
-            <a class="link" href="/api/vaccines/{{id}}">Edit <i class="fas fa-user-edit text-light"></i></a>
+      {{!-- <div class="col display-flex justify-space-between"> --}}
+      <div class="col align-center align-content-center">
+        {{#if vaccine_license_file}}
+          {{!-- <li>License: 
+            <a class="link" href="{{vaccine_license_file}}" target="_blank">  <i class="fas fa-file-pdf text-link"></i> View File </a>
+          </li> --}}
+          <button id="btnFetchPDF" 
+                  class="btn btn-primary mb-2 ml-1" 
+                  type="button">
+                  {{!-- <i class="fas fa-file-pdf text-light"></i> --}}
+                  <a class="link" href="{{vaccine_license_file}}" target="_blank">  <i class="fas fa-file-pdf text-link"></i></a>
+          </button>
+        {{else}}
+          <button id="btnFetchPDF" 
+                  class="btn btn-primary mb-2 ml-1" 
+                  type="button">
+                  <i class="fas fa-file-pdf text-light"></i>
+          </button>
+        {{/if}}
+        <button id="btnEditVaccine" 
+                class="btn btn-primary mb-2 ml-1" 
+                type="button">
+                <a href="/api/vaccines/{{id}}">
+                  <i class="fas fa-user-edit text-light"></i>
+                </a>
+        </button>
+        <button id="btnDeleteVaccine" 
+                class="btn btn-primary mb-2 ml-1" 
+                type="button"
+                alt="Edit Vaccine">
+                <a href="/api/vaccines/del/{{id}}">
+                  <i class="fas fa-trash text-light"></i>
+                </a>
+        </button>
+
+        {{!-- <nav class="navbar navbar-dark bg-dark">
+          <div>
+            <a href="/api/vaccines/{{id}}"><i class="fas fa-user-edit text-light"></i></a>
+            <a href="/api/vaccines/del/{{id}}"><i class="fas fa-trash text-light"></i></a>
           </div>
-        </nav>
+        </nav> --}}
+
       </div>
 
     </div>
   </div>
 
 </div>
+
+{{!-- <script src="/js/vaccineButtons.js"></script> --}}

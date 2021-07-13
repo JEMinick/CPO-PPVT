@@ -8,6 +8,7 @@ class Vaccine extends Model {}
 // vaccine_name
 // date_of_vaccine
 // vaccine_exp_date
+// vaccine_license_file
 // user_id
 // pet_id
 // date_created
@@ -21,11 +22,11 @@ Vaccine.init({
   },
   veterinarian: {
     type: DataTypes.STRING,
-    allowNull: true,
+    allowNull: true
   },
   vaccine_name: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: false
   },
   date_of_vaccine: {
     type: DataTypes.DATEONLY,
@@ -36,6 +37,10 @@ Vaccine.init({
     type: DataTypes.DATEONLY,
     allowNull: false
     // defaultValue: DataTypes.NOW,
+  },
+  vaccine_license_file: {
+    type: DataTypes.STRING,
+    allowNull: true
   },
   user_id: {
     type: DataTypes.INTEGER,

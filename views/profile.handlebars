@@ -1,0 +1,43 @@
+
+<div class="flex-column justify-space-around">
+  <div class="display-flex justify-space-between align-center mb-4">
+    <h2>The "{{userInfo.username}}" Profile:</h2>
+    <nav class="navbar navbar-light" style="background-color: #1976d2; border-radius: 35px">
+    <div class="icons">
+    <button 
+      id="delprofilebtn"
+      class="btn btn-primary delprofilebtn"
+      style="border-radius: 35px"
+      data-userid={{userInfo.id}}
+      type="button"
+      alt="Delete User Profile Button">
+      Delete Profile
+      <i class="fas fa-trash text-light"></i>
+    </button>
+    </div>
+    </nav>
+
+  </div>
+</div>
+
+<form class="card-body edit-user-form" id="edit-user-form">
+
+    <input type="hidden" name="user-id" value="{{userInfo.id}}" />
+
+    <label for="user-title" class="form-label">User Name (*):</label>
+    <input type="text" id="user-name" name="user-title" class="form-input" value="{{userInfo.username}}" />
+
+    <label for="user-email-addr" class="form-label">eMail (*):</label>
+    <input id="user-email" name="user-email-addr" class="form-input" value="{{userInfo.email}}" />
+
+    <div class="display-flex justify-space-between mt-4 gray-brdr edit-ftr-icons">
+        <div>
+            <button type="button" class="btn" id="cancelUserEdit">Cancel</button>
+            <button type="submit" class="btn" id="editUserBtn">Update Profile!</button>
+        </div>
+    </div>
+
+</form>
+
+
+<script src="/js/editUser.js"></script>

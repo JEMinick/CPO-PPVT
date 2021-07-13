@@ -8,10 +8,10 @@ class User extends Model {
   }
 }
 
-// id
-// username
-// email
-// password
+// id  :: NOT NULL
+// username :: NOT NULL
+// email :: NOT NULL
+// password :: NOT NULL
 
 User.init(
   {

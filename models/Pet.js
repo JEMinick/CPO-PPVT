@@ -12,6 +12,7 @@ class Pet extends Model {}
   // breed
   // dob
   // pet_photo
+  // pet_license_file
   // date_created :: default: NOW
   // user_id
 
@@ -44,6 +45,10 @@ Pet.init({
     // defaultValue: DataTypes.NOW,
   },
   pet_photo: {
+    type: DataTypes.TEXT,
+    allowNull: true
+  },
+  pet_license_file: {
     type: DataTypes.TEXT,
     allowNull: true
   },

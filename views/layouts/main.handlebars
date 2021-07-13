@@ -25,7 +25,7 @@
       <h1>
         {{!-- <span role="img" aria-label="money">💸</span> --}}
         {{#if isDashboard}}
-        <a href="/dashboard">My Profile</a>
+        <a href="/profile">My Profile</a>
         {{else}}
         <a href="/">CPO / PPVT</a>
         {{/if}}
@@ -37,7 +37,7 @@
           <button class="no-button" id="logout">logout</button>
         {{else}}
           {{#if loggedIn}}
-          <a href="/dashboard">Profile</a> |
+          <a href="/profile">Profile</a> |
           <button class="no-button" id="logout">logout</button>
           {{else}}
           <a href="/login">login</a>

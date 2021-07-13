@@ -26,10 +26,23 @@ By creating this full-stack application, we learned the following:
 *   Google Cloud Platform; and,
 *   Google Cloud Buckets.
 
+### The active link to the CPO-PPVT app on Heroku:
+[Personal Pet Vaccine Tracker for Concerned Pet Owners app](https://cpoppvt.herokuapp.com/)
+
+### Our gitHub for this project:
+[CPO-PPVT GitHub](https://github.com/JEMinick/CPO_PPVT)
+
+### Group Project Awards:
+[Personal Pet Vaccine Tracker for Concerned Pet Owners Award](https://youtu.be/XBOFUG7HsXA)
+
+### A sample login home page:
+![Screen shot:](./public/assets/CPOPPVT.png?raw=true)
+
+
 ## Installation
 <a name="installation"></a>
 
-Modules and packages required to be installed:
+Modules and packages required to be installed (defined within the package.json file):
 
 ```shell
 npm i
@@ -40,14 +53,14 @@ npm i
 
 To run this application:
 ```shell
-node server
+node server.js
 ```
 
 ## Contributing
 <a name="contributing"></a>
-There are many ways in which you can participate in the CPO-PPVT project, for example:
-*    [Submit bugs and feature requests](https://github.com/JEMinick/CPO-PPVT/issues), and help verify they are checked in;
-*    Review [source code changes](https://github.com/JEMinick/CPO-PPVT/pulls); and,
+There are many ways in which you can participate in the CPO_PPVT project, for example:
+*    [Submit bugs and feature requests](https://github.com/JEMinick/CPO_PPVT/issues), and help verify they are checked in;
+*    Review [source code changes](https://github.com/JEMinick/CPO_PPVT/pulls); and,
 *    Review the documentation and make pull requests for anything from typos to new content.
 
 ## Tests

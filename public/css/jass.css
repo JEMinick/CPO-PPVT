@@ -1,8 +1,9 @@
 :root {
   --white: #fff;
-  --dark-blue: #0d47a1;
-  --medium-blue: #1565c0;
-  --light-blue: #e3f2fd;
+  --dark-blue: #0d47a1; /*  #0d47a1 blue darken-4 */
+  /* --medium-blue: #1565c0; */
+  --medium-blue: #1e56ac; /*  #0d47a1 blue darken-4 */
+  --light-blue: #e3f2fd; 
   /* font-size: large; */
 }
 
@@ -394,6 +395,7 @@ h3 {
 
 h4 {
   font-size: 1.5rem;
+  background-color: var(--medium-blue);
 }
 
 h5 {
@@ -1110,6 +1112,7 @@ a:hover {
   /* color: #d9e9e8; */
   color: var(--light-blue); /* white; */
   background-color: var(--dark-blue); /* #4527a0; */
+  margin-top: 1em;
 }
 
 .card .card-body {
