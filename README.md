@@ -11,13 +11,9 @@
 *    [Questions](#questions)
 *    [License](#license)
 
-## User Info:
-    GitHub: https://github.com/JEMinick   
-    eMail:  james.minick@prodigy.net
-
 ## Description: 
 
-The primary motivation for creating CPO-PPVT was creating a simple tool one can use to keep a private digital record of the pet vaccinations relating to my pets.
+The primary motivation for creating CPO-PPVT was creating a simple tool one can use to keep a private digital record of the pet vaccinations relating to our pets.
 The problem being addressed and resolved with this app is providing digital access to pet vaccination information that can be accessed from typical user web-connected devices (i.e., computer, mobile phone, tablet, etc).  In theory, read-only access could also be shared and provided to another authorized user (defined within the CPO-PPVT app) such as a veterinarian or licensing official.<br/>
 
 By creating this full-stack application, we learned the following: 
@@ -27,10 +23,10 @@ By creating this full-stack application, we learned the following:
 *   Google Cloud Buckets.
 
 ### The active link to the CPO-PPVT app on Heroku:
-[Personal Pet Vaccine Tracker for Concerned Pet Owners app](https://cpoppvt.herokuapp.com/)
+[Personal Pet Vaccine Tracker for Concerned Pet Owners app](https://cpo-ppvt.herokuapp.com/)
 
 ### Our gitHub for this project:
-[CPO-PPVT GitHub](https://github.com/JEMinick/CPO_PPVT)
+[CPO-PPVT GitHub](https://github.com/JEMinick/CPO-PPVT)
 
 ### Group Project Awards:
 [Personal Pet Vaccine Tracker for Concerned Pet Owners Award](https://youtu.be/XBOFUG7HsXA)
@@ -59,8 +55,8 @@ node server.js
 ## Contributing
 <a name="contributing"></a>
 There are many ways in which you can participate in the CPO_PPVT project, for example:
-*    [Submit bugs and feature requests](https://github.com/JEMinick/CPO_PPVT/issues), and help verify they are checked in;
-*    Review [source code changes](https://github.com/JEMinick/CPO_PPVT/pulls); and,
+*    [Submit bugs and feature requests](https://github.com/JEMinick/CPO-PPVT/issues), and help verify they are checked in;
+*    Review [source code changes](https://github.com/JEMinick/CPO-PPVT/pulls); and,
 *    Review the documentation and make pull requests for anything from typos to new content.
 
 ## Tests
@@ -72,11 +68,9 @@ There are many ways in which you can participate in the CPO_PPVT project, for ex
 If you have any questions reguarding this repo, open an issue or
 contact me directly at james.minick@prodigy.net
 
-You can find more of my work at: [JEMinick](https://github.com/JEMinick)
-
 ## License
 <a name="license"></a>
-Copyright (c) 2021 James E. Minick. All rights reserved.
+Copyright (c) 2021 CPO-PPVT Team. All rights reserved.
 
 Licensed under the [MIT](./LICENSE) license.
 
